@@ -9,6 +9,8 @@
   <title>Frontend Mentor | Product preview card component</title>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
   <link rel="stylesheet" href="style.css">
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
@@ -37,7 +39,17 @@
   <div class="container">
     <div class="frame">
       <div class="thumbnail">
-        <img src="images/image-product-desktop.jpg" alt="">
+        <img id="product-photo" src="images/image-product-desktop.jpg" alt="">
+        <script>
+          $(document).ready(function () {
+            if ($(window).width() < 600) {
+              $('#product-photo').attr('src', 'images/image-product-mobile.jpg');
+            } else {
+
+              $('#product-photo').attr('src', 'images/image-product-desktop.jpg');
+            }
+          });
+        </script>
       </div>
       <div class="content">
         <span class="sub-heading">Preview</span>
